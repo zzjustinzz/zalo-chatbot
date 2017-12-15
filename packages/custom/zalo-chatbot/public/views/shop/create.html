@@ -1,0 +1,50 @@
+<section data-ng-controller="ShopController" data-ng-init="initCreate()" style="width: 100%">
+    <form name="shopForm" data-ng-submit="create(shopForm.$valid)">
+        <md-card layout="column" ng-cloak="">
+            <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                <md-input-container class="md-icon-float md-block">
+                    <label>Name</label>
+                    <md-icon class="material-icons">font_download</md-icon>
+                    <input ng-model="name" required name="name">
+                    <div ng-messages="shopForm.name.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                    <label>Owner</label>
+                    <md-icon class="material-icons">contacts</md-icon>
+                    <input ng-model="owner" name="owner">
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                    <label>Phone</label>
+                    <md-icon class="material-icons">smartphone</md-icon>
+                    <input ng-model="phone" name="phone">
+                </md-input-container>
+            </md-content>
+            <md-content layout-gt-sm="row" layout-padding>
+                <md-input-container flex="50" class="md-icon-float md-block">
+                    <label>OA ID</label>
+                    <md-icon class="material-icons">info_outline</md-icon>
+                    <input ng-model="oa_id" required name="oa_id">
+                    <div ng-messages="shopForm.oa_id.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                    <div ng-if="errDuplicateOAID">
+                        <div style="color: red">OA_ID already taken.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container flex="50" class="md-icon-float md-block">
+                    <label>OA Secret</label>
+                    <md-icon class="material-icons">vpn_key</md-icon>
+                    <input ng-model="oa_secret" required name="oa_secret">
+                    <div ng-messages="shopForm.oa_secret.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </md-content>
+            <div>
+                <md-button type="submit">Create</md-button>
+            </div>
+        </md-card>
+    </form>
+</section>

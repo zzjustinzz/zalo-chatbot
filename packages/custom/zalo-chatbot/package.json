@@ -1,0 +1,16 @@
+{
+    "name": "zalo-chatbot",
+    "version": "0.0.1",
+    "description": "Some description of zalo-chatbot",
+    "author": {
+        "name": "mean scaffold"
+    },
+    "mean": "1.0",
+    "dependencies": {
+        "node-rest-client": "^3.1.0"
+    },
+    "license": "MIT",
+    "scripts": {
+        "postinstall": "bower install"
+    }
+}
