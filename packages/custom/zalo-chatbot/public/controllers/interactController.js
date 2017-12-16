@@ -57,6 +57,7 @@
             Interact.get_configs((config) => {
                 if (config.environment === 'production') {
                     localip = '118.102.6.55';
+                    console.log('localip:' + localip);
                 }
                 var socket = io('http://' + localip + ':' + config.socketPort + '/');
                 socket.on('new_interact', function(data) {
