@@ -59,7 +59,7 @@
                     localip = '118.102.6.55';
                 }
                 //var socket = io('http://' + localip + ':' + config.socketPort + '/');
-                var socket = io.connect('http://' + localip + ':' + config.socketPort + '/', { transports: ['polling'] });
+                var socket = io.connect('http://' + localip + ':' + config.socketPort + '/', { reconnect: true, transports: ['websocket', 'polling'] });
                 socket.on('new_interact', function(data) {
                     console.log(data);
                     interactTemp.push(data.interact);
