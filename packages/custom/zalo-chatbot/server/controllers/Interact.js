@@ -8,6 +8,15 @@ var mongoose = require('mongoose'),
     _ = require('lodash');
 var Client = require('node-rest-client').Client;
 var restClient = new Client();
+var io = {};
+var moment = require('moment');
+
+/**
+ * Initialize socket controller
+ */
+exports.init = function(_io) {
+    io = _io;
+};
 
 /**
  * Find interact by id
@@ -26,11 +35,14 @@ exports.interact = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
     var interact = new Interact(req.body);
-
+    interact.timestamp = new Date();
     interact.save(function(err) {
         if (err) {
             return res.status(500);
         }
+        io.emit('new_interact', {
+            interact: interact
+        });
         res.jsonp(interact);
     });
 };
@@ -107,5 +119,25 @@ exports.find_one_interact = function(req, res) {
             });
         }
         res.json(interact);
+    });
+};
+
+exports.get_interacts_time = function(req, res) {
+    var compareDate = new Date();
+    compareDate.setMinutes(0);
+    compareDate.setSeconds(0);
+    compareDate.setMilliseconds(0);
+    Interact.find({
+        timestamp: {
+            $gte: moment().subtract(1, 'h')
+        }
+    }).exec((err, interacts) => {
+        if (err) {
+            console.log(err);
+            return res.json(500, {
+                error: 'Cannot list the interacts'
+            });
+        }
+        res.json(interacts);
     });
 };

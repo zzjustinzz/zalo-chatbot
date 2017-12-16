@@ -1,5 +1,10 @@
 {
-  "name": "zalo-chatbot",
-  "version": "0.0.1",
-  "dependencies": {}
+    "name": "zalo-chatbot",
+    "version": "0.0.1",
+    "dependencies": {
+        "angular-material-data-table": "*",
+        "socket.io-client": "*",
+        "angular-nvd3": "*",
+        "moment": "*"
+    }
 }

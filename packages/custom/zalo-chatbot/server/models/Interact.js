@@ -10,14 +10,15 @@ var mongoose = require('mongoose'),
  * InteractSchema Schema
  */
 var InteractSchema = new Schema({
+    interact_type: {
+        type: String,
+        required: false
+    },
     customerSay: {
         type: String,
         required: false
     },
-    botMsgs: {
-        type: String,
-        required: false
-    },
+    botMsgs: [],
     customerId: {
         type: String,
         required: false

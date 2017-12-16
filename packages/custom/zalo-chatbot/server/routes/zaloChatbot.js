@@ -3,10 +3,18 @@
 
     var shop = require('../controllers/Shop');
     var interact = require('../controllers/Interact');
+    var app = require('express')();
+    var server = require('http').Server(app);
+    var io = require('socket.io')(server);
+    var config = require('meanio').getConfig();
 
     /* jshint -W098 */
     // The Package is past automatically as first parameter
     module.exports = function(ZaloChatbot, app, auth, database, circles) {
+
+        server.listen(config.socketPort, function() {
+            console.log('Socket in package started at ' + config.socketPort);
+        });
 
         var requiresAdmin = circles.controller.hasCircle('admin');
         var requiresLogin = circles.controller.hasCircle('authenticated');
@@ -32,6 +40,12 @@
             });
         });
 
+        interact.init(io);
+
+        app.get('/api/configs', function(req, res) {
+            res.send(config);
+        });
+
         //Shop
         app.route('/api/shops/find_one_shop')
             .get(shop.find_one_shop);
@@ -45,6 +59,8 @@
         app.param('shopId', shop.shop);
 
         //Interact
+        app.route('/api/interacts/get_interacts_time')
+            .get(interact.get_interacts_time);
         app.route('/api/interacts/find_one_interact')
             .get(interact.find_one_interact);
         app.route('/api/interacts')

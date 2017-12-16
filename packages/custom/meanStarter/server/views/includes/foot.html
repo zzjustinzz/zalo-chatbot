@@ -1,6 +1,11 @@
 <md-subheader class="md-primary">MEAN.io makes building apps simpler and faster</md-subheader>
 <script type="text/javascript" src="/bundle/app.js"></script>
+<script src="zalo-chatbot/assets/lib/socket.io-client/dist/socket.io.js"></script>
+<script src="zalo-chatbot/assets/lib/d3/d3.min.js"></script>
+<script src="zalo-chatbot/assets/lib/nvd3/build/nv.d3.min.js"></script>
+<script src="zalo-chatbot/assets/lib/angular-nvd3/dist/angular-nvd3.min.js"></script>
+<script src="zalo-chatbot/assets/lib/moment/moment.js"></script>
 
 {% if (process.env.NODE_ENV == 'development') %}
-  <script type="text/javascript" src="{{'//' + req.hostname + ':35729/livereload.js'}}"></script>
+<script type="text/javascript" src="{{'//' + req.hostname + ':35729/livereload.js'}}"></script>
 {% endif %}
