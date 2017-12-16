@@ -58,7 +58,7 @@
                 if (config.environment === 'production') {
                     localip = '118.102.6.55';
                 }
-                var socket = io('ws://' + localip + ':' + config.socketPort + '/');
+                var socket = io('ws://' + localip + ':5100/');
                 socket.on('new_interact', function(data) {
                     console.log(data);
                     interactTemp.push(data.interact);

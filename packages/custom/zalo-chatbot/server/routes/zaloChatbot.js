@@ -5,16 +5,16 @@
     var interact = require('../controllers/Interact');
     var app = require('express')();
     var server = require('http').Server(app);
-    var io = require('socket.io')(server);
+    var io = require('socket.io')(5100);
     var config = require('meanio').getConfig();
 
     /* jshint -W098 */
     // The Package is past automatically as first parameter
     module.exports = function(ZaloChatbot, app, auth, database, circles) {
 
-        server.listen(config.socketPort, function() {
-            console.log('Socket in package started at ' + config.socketPort);
-        });
+        // server.listen(config.socketPort, function() {
+        //     console.log('Socket in package started at ' + config.socketPort);
+        // });
 
         var requiresAdmin = circles.controller.hasCircle('admin');
         var requiresLogin = circles.controller.hasCircle('authenticated');
