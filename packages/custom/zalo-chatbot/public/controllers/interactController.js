@@ -57,9 +57,9 @@
             Interact.get_configs((config) => {
                 if (config.environment === 'production') {
                     localip = '118.102.6.55';
-                    console.log('localip:' + localip);
                 }
-                var socket = io('http://118.102.6.55:' + config.socketPort + '/');
+                //var socket = io('http://' + localip + ':' + config.socketPort + '/');
+                var socket = io.connect('http://' + localip + ':' + config.socketPort + '/', { transports: ['polling'] });
                 socket.on('new_interact', function(data) {
                     console.log(data);
                     interactTemp.push(data.interact);
