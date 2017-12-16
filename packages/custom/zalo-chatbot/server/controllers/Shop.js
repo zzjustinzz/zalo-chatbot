@@ -12,7 +12,7 @@ var restClient = new Client();
 /**
  * Find shop by id
  */
-exports.outlet = function(req, res, next, id) {
+exports.shop = function(req, res, next, id) {
     Shop.load(id, function(err, shop) {
         if (err) return next(err);
         if (!shop) return next(new Error('Failed to load shop ' + id));
