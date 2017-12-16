@@ -29,11 +29,11 @@ var InteractSchema = new Schema({
     },
     orderId: {
         type: String,
-        required: true
+        required: false
     },
     conversationId: {
         type: String,
-        required: true
+        required: false
     }
 });
 

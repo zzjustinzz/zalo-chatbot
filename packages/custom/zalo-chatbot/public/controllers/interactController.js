@@ -45,6 +45,8 @@
                     var end = moment();
                     var start = moment(interact.timestamp);
                     var d = moment.duration(end.diff(start)).get('minutes');
+                    console.log(d);
+                    console.log($scope.dataRealtime[0]);
                     console.log($scope.dataRealtime[0].values[60 - d]);
                     $scope.dataRealtime[0].values[60 - d].y += 1;
                 });
