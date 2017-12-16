@@ -59,6 +59,8 @@
         app.param('shopId', shop.shop);
 
         //Interact
+        app.route('/api/interacts/get_interacts_conversation')
+            .get(interact.get_interacts_conversation);
         app.route('/api/interacts/get_interacts_time')
             .get(interact.get_interacts_time);
         app.route('/api/interacts/find_one_interact')

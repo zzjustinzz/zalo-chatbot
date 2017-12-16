@@ -141,3 +141,17 @@ exports.get_interacts_time = function(req, res) {
         res.json(interacts);
     });
 };
+
+exports.get_interacts_conversation = function(req, res) {
+    Interact.find({
+        conversationId: req.query.conversationId
+    }).exec((err, interacts) => {
+        if (err) {
+            console.log(err);
+            return res.json(500, {
+                error: 'Cannot list the interacts'
+            });
+        }
+        res.json(interacts);
+    });
+};
