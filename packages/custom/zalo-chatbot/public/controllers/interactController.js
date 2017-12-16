@@ -58,7 +58,7 @@
                 if (config.environment === 'production') {
                     localip = '118.102.6.55';
                 }
-                var socket = io.connect('ws://' + localip + ':' + config.socketPort + '/', { reconnect: true, transports: ['websocket', 'polling'] });
+                var socket = io.connect('ws://' + localip + ':' + config.socketPort + '/', { reconnect: true, transports: ['websocket'] });
                 socket.on('new_interact', function(data) {
                     console.log(data);
                     interactTemp.push(data.interact);
