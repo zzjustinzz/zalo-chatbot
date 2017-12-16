@@ -45,6 +45,7 @@
                     var end = moment();
                     var start = moment(interact.timestamp);
                     var d = moment.duration(end.diff(start)).get('minutes');
+                    console.log($scope.dataRealtime[0].values[60 - d]);
                     $scope.dataRealtime[0].values[60 - d].y += 1;
                 });
             });
@@ -57,6 +58,7 @@
                 }
                 var socket = io('http://' + localip + ':' + config.socketPort + '/');
                 socket.on('new_interact', function(data) {
+                    console.log(data);
                     interactTemp.push(data.interact);
                 });
             });
