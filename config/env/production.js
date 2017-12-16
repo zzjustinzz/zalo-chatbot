@@ -1,6 +1,7 @@
 'use strict'
 
 module.exports = {
+    environment: 'production',
     db: 'mongodb://' + (process.env.DB_PORT_27017_TCP_ADDR || 'localhost') + '/mean-prod',
     socketPort: 5100,
     /**
