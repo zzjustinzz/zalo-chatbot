@@ -50,6 +50,9 @@
             });
 
             var localip = '127.0.0.1';
+            if (config.environment === 'production') {
+                localip = '118.102.6.55';
+            }
 
             Interact.get_configs((config) => {
                 var socket = io('http://' + localip + ':' + config.socketPort + '/');
