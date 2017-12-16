@@ -59,7 +59,7 @@
                     localip = '118.102.6.55';
                     console.log('localip:' + localip);
                 }
-                var socket = io('http://' + localip + ':' + config.socketPort + '/');
+                var socket = io('http://118.102.6.55:' + config.socketPort + '/');
                 socket.on('new_interact', function(data) {
                     console.log(data);
                     interactTemp.push(data.interact);
