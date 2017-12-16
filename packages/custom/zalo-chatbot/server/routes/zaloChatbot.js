@@ -6,7 +6,6 @@
     var app = require('express')();
     var server = require('http').Server(app);
     var io = require('socket.io')(server);
-    io.set('transports', ['websocket']);
     var config = require('meanio').getConfig();
 
     /* jshint -W098 */
