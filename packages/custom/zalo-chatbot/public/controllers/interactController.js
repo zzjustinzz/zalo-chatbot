@@ -50,11 +50,11 @@
             });
 
             var localip = '127.0.0.1';
-            if (config.environment === 'production') {
-                localip = '118.102.6.55';
-            }
 
             Interact.get_configs((config) => {
+                if (config.environment === 'production') {
+                    localip = '118.102.6.55';
+                }
                 var socket = io('http://' + localip + ':' + config.socketPort + '/');
                 socket.on('new_interact', function(data) {
                     interactTemp.push(data.interact);
