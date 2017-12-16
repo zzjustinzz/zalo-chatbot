@@ -2,6 +2,7 @@
     'use strict';
 
     var shop = require('../controllers/Shop');
+    var interact = require('../controllers/Interact');
 
     /* jshint -W098 */
     // The Package is past automatically as first parameter
@@ -42,5 +43,17 @@
             .put(shop.update)
             .delete(shop.destroy);
         app.param('shopId', shop.shop);
+
+        //Interact
+        app.route('/api/interacts/find_one_interact')
+            .get(interact.find_one_interact);
+        app.route('/api/interacts')
+            .get(interact.all)
+            .post(interact.create);
+        app.route('/api/interacts/:interactId')
+            .get(interact.show)
+            .put(interact.update)
+            .delete(interact.destroy);
+        app.param('interactId', interact.interact);
     };
 })();

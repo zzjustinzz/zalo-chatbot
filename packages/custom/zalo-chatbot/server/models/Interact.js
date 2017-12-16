@@ -18,14 +18,6 @@ var InteractSchema = new Schema({
         type: String,
         required: false
     },
-    oaid: {
-        type: String,
-        required: false
-    },
-    shopAdminId: {
-        type: String,
-        required: false
-    },
     customerId: {
         type: String,
         required: false

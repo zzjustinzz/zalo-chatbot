@@ -18,12 +18,12 @@ ZaloChatbot.register(function(app, auth, database, circles) {
 
     //We are adding a link to the main menu for all authenticated users
 
-    ZaloChatbot.menus.add({
-        title: 'Create Shop',
-        link: 'create shop',
-        roles: ['authenticated'],
-        menu: 'main'
-    });
+    // ZaloChatbot.menus.add({
+    //     title: 'Create Shop',
+    //     link: 'create shop',
+    //     roles: ['authenticated'],
+    //     menu: 'main'
+    // });
 
     /**
       //Uncomment to use. Requires meanio@0.3.7 or above
